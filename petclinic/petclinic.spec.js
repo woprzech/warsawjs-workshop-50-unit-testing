@@ -23,6 +23,28 @@ describe('petclinic', () => {
         expect(mockSend).toHaveBeenCalledWith('Wizyta umówiona.')
     });
 
+    /*
+    * Zaimplementuj wykorzystując TDD następujące funkcjonalności:
+    */
+
+    /*
+    * Pobieranie wizyt po dacie
+    * - w query powinienś przesłać wartości "from" oraz "to"
+    * obsłuż sytuacje, gdy:
+    * - jest przesłane wyłącznie from - szukamy wszystkich wizyt od jakiejś daty
+    * - jest przesłane wyłącznie to - szukamy wszystkich wizyt do jakiejś daty
+    * - są przesłane obie daty - szukamy wizyt dla wskazanego okresu czasu
+    * */
+
+    /*
+    * Anulowanie wizyt
+    * - endpoint do tworzenia wizyt powinien zwracać id wizyty
+    * - endpoint do anulowania DELETE url: /visits/:visitId
+    * obsłuż sytuacje, gdy:
+    * - wizyta dla wskazanego ID istnieje - usuwamy ją
+    * - wizyta o wskazanym ID nie istnieje - zwracamy http status 404
+    * */
+
     async function fetchVisits() {
         const visits = await supertest(app)
             .get('/visits');
